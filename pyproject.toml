@@ -1,0 +1,16 @@
+[project]
+name = "reddit-sentiment-analysis"
+version = "0.1.0"
+description = "A tool that leverages LangChain and LangGraph to analyse sentiment in business-related discussions on Reddit. This project extracts and categorises user opinions to provide insights into customer perceptions, trends, and brand sentiment"
+authors = [
+    {name = "Andrean Georgiev"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
