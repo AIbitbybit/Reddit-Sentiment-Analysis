@@ -1,0 +1,20 @@
+# Virtual environments
+
+.venv/
+**pycache**/
+*.pyc
+*.pyo
+*.pyd
+
+# OS-specific files
+
+.DS_Store
+Thumbs.db
+
+# Logs & temporary files
+
+- .log
+
+# Environment 
+
+.env
