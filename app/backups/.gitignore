@@ -1,0 +1,12 @@
+# Ignore all backup files
+*
+!.gitignore
+!README.md
+
+# Allow directories but not their contents
+!*/
+*/*/
+
+# Keep .keep files for empty directories
+!.keep
+!*/.keep 

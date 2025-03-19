@@ -1,0 +1,24 @@
+# Dashboard Module Removal Summary
+
+## Files Removed
+
+- src/reddit_sentiment_analysis/dashboard/app.py
+- src/reddit_sentiment_analysis/dashboard/__init__.py
+- src/reddit_sentiment_analysis/dashboard/__main__.py
+
+## Files Modified
+
+- pyproject.toml - Removed 'reddit-dashboard' entry point
+- src/reddit_sentiment_analysis/interactive.py - Removed dashboard function and menu option
+- src/reddit_sentiment_analysis/config.py - Removed dashboard-specific configuration
+- docs/PROJECT_STRUCTURE.md - Removed dashboard references
+- README.md - Updated features and architecture sections
+
+## Files Added
+
+- docs/REMOVED_COMPONENTS.md - Documentation of removed components
+- removed_modules/README.md - Information about removed modules
+
+## Backup
+
+All dashboard module files backed up to removed_modules/dashboard/

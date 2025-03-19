@@ -1,0 +1,16 @@
+2025-03-19 03:54:30,181 - src.reddit_sentiment_analysis.data_collection.reddit_client - INFO - Found refresh token, attempting to authenticate
+2025-03-19 03:54:30,182 - praw - WARNING - It appears that you are using PRAW in an asynchronous environment.
+It is strongly recommended to use Async PRAW: https://asyncpraw.readthedocs.io.
+See https://praw.readthedocs.io/en/latest/getting_started/multiple_instances.html#discord-bots-and-asynchronous-environments for more info.
+
+2025-03-19 03:54:30,568 - src.reddit_sentiment_analysis.data_collection.reddit_client - INFO - Successfully authenticated as u/Logical_Historian882
+2025-03-19 03:54:30,568 - src.reddit_sentiment_analysis.data_collection.reddit_client - INFO - Authenticated using saved token
+2025-03-19 03:54:30,568 - src.reddit_sentiment_analysis.data_collection.reddit_client - INFO - Reddit client initialized successfully
+2025-03-19 03:54:30,568 - praw - WARNING - It appears that you are using PRAW in an asynchronous environment.
+It is strongly recommended to use Async PRAW: https://asyncpraw.readthedocs.io.
+See https://praw.readthedocs.io/en/latest/getting_started/multiple_instances.html#discord-bots-and-asynchronous-environments for more info.
+
+2025-03-19 03:54:36,340 - praw - WARNING - It appears that you are using PRAW in an asynchronous environment.
+It is strongly recommended to use Async PRAW: https://asyncpraw.readthedocs.io.
+See https://praw.readthedocs.io/en/latest/getting_started/multiple_instances.html#discord-bots-and-asynchronous-environments for more info.
+

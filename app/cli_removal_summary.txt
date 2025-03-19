@@ -1,0 +1,18 @@
+# CLI Entry Point Removal Summary
+
+## Files Removed
+
+- src/reddit_sentiment_analysis/storage/setup_db.py - Moved to removed_modules/storage/
+
+## Files Modified
+
+- pyproject.toml - Removed 'reddit-setup-db' entry point
+- src/reddit_sentiment_analysis/interactive.py - Updated to use CommentDatabase directly
+- docs/REMOVED_COMPONENTS.md - Added documentation about the removal
+- docs/PROJECT_STRUCTURE.md - Updated to remove references to setup_db.py
+- README.md - Added note about the removal to Recent Changes
+- removed_modules/README.md - Added information about the removed setup_db module
+
+## Backup
+
+The setup_db.py file was backed up to removed_modules/storage/ for future reference.

@@ -1,0 +1,13 @@
+# Ignore all data files except README and structure files
+*
+!.gitignore
+!README.md
+!.keep
+
+# Allow directories but not their contents
+!*/
+*/*/
+
+# Special exceptions for directory structure preservation
+!raw/.keep
+!vector_db/.keep 
