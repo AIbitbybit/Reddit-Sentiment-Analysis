@@ -44,6 +44,24 @@ To run the basic functionality tests:
 python app/test_basic_functions.py
 ```
 
+## Images
+
+### App Screenshots
+
+Below are screenshots of the application's graphical user interface:
+
+![Dashboard Overview](Reddit_Sentiment_Analysis/images/dashboard.png)
+_Main dashboard showing sentiment analysis summary and recent comments_
+
+![Response Interface](Reddit_Sentiment_Analysis/images/response.png)
+_AI-generated response drafting interface with editing capabilities_
+
+![Settings Panel](Reddit_Sentiment_Analysis/images/settings.png)
+_Application configuration and Reddit monitoring settings_
+
+![Email Alert](Reddit_Sentiment_Analysis/images/email_alert.png)
+_Email notification for negative comments requiring attention_
+
 ## Key Components
 
 ### Sentiment Analyzer
@@ -122,26 +140,6 @@ The application can be extended with:
 - Support for more social media platforms
 - Advanced response generation strategies
 - Dashboard for managing responses
-
-## Images
-
-### GUI Screenshots
-
-Below are screenshots of the application's graphical user interface:
-
-![Dashboard Overview](Reddit_Sentiment_Analysis/images/dashboard.png)
-_Main dashboard showing sentiment analysis summary and recent comments_
-
-![Response Interface](Reddit_Sentiment_Analysis/images/response.png)
-_AI-generated response drafting interface with editing capabilities_
-
-![Settings Panel](Reddit_Sentiment_Analysis/images/settings.png)
-_Application configuration and Reddit monitoring settings_
-
-![Email Alert](Reddit_Sentiment_Analysis/images/email_alert.png)
-_Email notification for negative comments requiring attention_
-
-> Note: Additional screenshots can be added to the `images/` directory as needed.
 
 ## Data Privacy and Contributing
 
