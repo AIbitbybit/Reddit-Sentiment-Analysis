@@ -1,48 +1,44 @@
-# Reddit Sentiment Analysis
+# Reddit Sentiment Monitoring System
 
-An automated system for monitoring and responding to Reddit comments, with sentiment analysis and human-in-the-loop approval.
+A specialized business monitoring tool that continuously scans Reddit for mentions of your company, product, or brand. It automatically identifies negative comments, sends you immediate email alerts, and suggests professional AI-drafted responses that you can approve with a single click.
 
-## Features
+## What This Tool Actually Does
 
-- **Sentiment Analysis**: Analyze the sentiment of Reddit comments using OpenAI GPT models
-- **Response Generation**: Automatically generate response drafts for negative comments
-- **Human Approval**: Approve or modify AI-generated responses before posting
-- **Email Alerts**: Get notified about important comments via email
-- **Database Storage**: Store all comments and their analysis results
-- **Permalink Validation**: Ensure all Reddit links are properly formatted for reference
+The Reddit Sentiment Monitoring System performs these specific functions:
 
-## Application Structure
+1. **Active Reddit Monitoring**: Scans selected subreddits every 5 minutes for new comments mentioning your key terms.
+
+2. **Sentiment Analysis**: Uses advanced AI (powered by OpenAI) to analyze comment sentiment, classifying each mention as positive, negative, or neutral.
+
+3. **Instant Negative Alerts**: When a negative comment is detected, you immediately receive an email alert containing:
+
+   - The full comment text and context
+   - A link to the Reddit post
+   - An AI-drafted professional response
+
+4. **One-Click Response**: Reply to the alert email with "Confirmed" to automatically post the suggested response to Reddit.
+
+5. **Historical Analysis**: View and filter historical comments with their sentiment scores in the History tab.
+
+## How It Works
 
 ```
-app/
-├── src/
-│   └── reddit_sentiment_analysis/
-│       ├── analysis/            # Sentiment analysis components
-│       ├── config/              # Configuration management
-│       ├── integrations/        # Integration with external services
-│       ├── monitoring/          # Reddit monitoring and email alerts
-│       ├── preprocessing/       # Text processing utilities
-│       ├── storage/             # Database management
-│       └── workflows/           # LangGraph workflows
-├── tests/
-│   ├── integration/             # Integration tests
-│   └── unit/                    # Unit tests
-└── test_basic_functions.py      # Basic functionality tests
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│                 │    │                 │    │                 │    │                 │
+│  Reddit Scraper ├───►│ Sentiment Model ├───►│  Email Alerts  ├───►│ Response System │
+│                 │    │                 │    │                 │    │                 │
+└─────────────────┘    └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
-## Testing
+1. **Collection**: The monitoring system connects to Reddit's API and collects new comments containing your specified key terms from selected subreddits.
 
-The application includes several test suites:
+2. **Analysis**: Each comment is analyzed by our sentiment engine to determine if it's positive, negative, or neutral, with a confidence score.
 
-1. **Unit Tests**: Test individual components in isolation
-2. **Integration Tests**: Test how components work together
-3. **Basic Functionality Tests**: Test core application features
+3. **Alert**: Negative comments trigger immediate email alerts to your specified address, including the comment and an AI-crafted response.
 
-To run the basic functionality tests:
+4. **Response**: You review the suggested response and approve it with a simple email reply; the system then posts it to Reddit on your behalf.
 
-```bash
-python app/test_basic_functions.py
-```
+5. **Tracking**: All comments and their sentiment are stored in a database for historical analysis and trend tracking.
 
 ## Images
 
@@ -62,121 +58,260 @@ _Application configuration and Reddit monitoring settings_
 ![Email Alert](Reddit_Sentiment_Analysis/images/email_alert.png)
 _Email notification for negative comments requiring attention_
 
-## Key Components
+## Getting Started
 
-### Sentiment Analyzer
+### Prerequisites
 
-Uses OpenAI's models to analyze the sentiment of comments and classify them as positive, negative, or neutral.
+- Python 3.11 or newer
+- Reddit account with API credentials
+- OpenAI API key
+- Email account for sending alerts
 
-### Workflow System
+### Quick Installation
 
-The application uses LangGraph for workflow management, allowing for a structured process of:
+1. Run the installation script for your platform:
 
-1. Analyzing comment sentiment
-2. Generating responses for negative comments
-3. Human review and approval
-4. Storing results
+   **Windows**:
 
-### Database
+   ```
+   install.bat
+   ```
 
-SQLite database for storing:
+   **macOS/Linux**:
 
-- Comment details
-- Sentiment analysis results
-- Generated responses
-- Approval status
-- Email notification status
+   ```
+   ./install.sh
+   ```
 
-### Email Service
+2. Start the application:
 
-Sends email alerts for negative comments that require attention, including:
+   ```
+   python run_app.py
+   ```
 
-- Comment details
-- Sentiment analysis
-- Link to the original Reddit comment
-- Generated response draft
+3. Configure your settings in the application's Settings tab.
 
-## Setting Up
+### Manual Installation
 
-1. Set up environment variables (see `.env.example`)
+1. Clone the repository and navigate to the project directory
 
-   - Configure email settings:
-     ```
-     SMTP_SERVER=smtp.example.com
-     SMTP_PORT=587
-     SENDER_EMAIL=your_email@example.com
-     SENDER_EMAIL_PASSWORD=your_password_here
-     EMAIL_SKIP_VERIFY=false  # Set to "true" only for testing with self-signed certificates
-     ```
-   - Set OpenAI API key:
-     ```
-     OPENAI_API_KEY=your_openai_api_key
-     OPENAI_MODEL=gpt-4o
-     ```
+2. Install dependencies:
 
-2. Install dependencies using Poetry:
+   ```
+   # Install Poetry if you don't have it
+   # Windows
+   (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
 
-   ```bash
-   cd app
+   # macOS/Linux
+   curl -sSL https://install.python-poetry.org | python3 -
+
+   # Then install dependencies
    poetry install
+
+   # Activate the virtual environment
+   poetry env activate
    ```
 
-3. Run the application:
-   ```bash
-   poetry run reddit-monitor
    ```
 
-### Email Service SSL Certificate Verification
+   ```
 
-By default, the email service will verify SSL certificates for secure SMTP connections. When using self-signed certificates for testing, you can set `EMAIL_SKIP_VERIFY=true` in your `.env` file to bypass certificate verification.
+3. Create a `.env` file with your credentials (see `.env.example`)
 
-**Warning**: Disabling SSL certificate verification is not recommended for production use as it makes the connection insecure.
+4. Start the application:
+   ```
+   poetry run python run_app.py
+   ```
 
-## Extending the Application
+## Using the Application
 
-The application can be extended with:
+### Setting Up Monitoring
 
-- Additional sentiment analysis models
-- Support for more social media platforms
-- Advanced response generation strategies
-- Dashboard for managing responses
+1. In the **Monitor** tab:
 
-## Data Privacy and Contributing
+   - Enter your brand/product name as the key term
+   - Enter your email address for alerts
+   - Select subreddits to monitor (default: r/business, r/smallbusiness)
+   - Click "Start Monitoring"
 
-### Data Privacy
+2. The system will:
+   - Run in the background on 5-minute scan intervals
+   - Display logs of its activity
+   - Show detected comments in real-time
+   - Send email alerts only for negative comments
 
-This repository is configured to exclude all sensitive data files from being pushed to GitHub:
+### Responding to Alerts
 
-- Database files (_.db, _.sqlite)
-- Reddit comment data (raw JSON files)
-- Cached API responses
-- Workflow state files
-- Environment files with API keys (.env)
+When you receive an email alert about a negative comment:
 
-If you're contributing to this project, please respect these guidelines:
+1. Review the comment and the suggested AI response
+2. If you approve the response, reply to the email with "Confirmed"
+3. The system will automatically post the response to the Reddit comment
+4. If you don't respond, no action will be taken
 
-1. **Never commit real user data or comments** to the repository
-2. Use the provided `.env.example` for configuration templates
-3. For testing, create minimal sample data that doesn't contain personal information
-4. Make sure your local `.gitignore` is properly set up before committing
+### Viewing Historical Data
 
-### Directory Structure Preservation
+The **History** tab allows you to:
 
-Empty directories are preserved with `.keep` files to maintain the correct structure while excluding the contents. When adding new data directories, follow this pattern:
+- View all comments detected by the system
+- Filter by sentiment (positive, negative, neutral)
+- Search by keyword or date range
+- Export data for external analysis
+
+## Configuration Options
+
+### Reddit API Setup
+
+In the Settings tab:
+
+- Enter your Reddit Client ID and Secret
+- Configure authentication settings
+- Adjust scan frequency (default: 5 minutes)
+
+### Email Settings
+
+In the Settings tab:
+
+- Configure SMTP server details
+- Enter sender email credentials
+- Test email configuration
+
+### AI Response Settings
+
+In the Settings tab:
+
+- Select OpenAI model (default: gpt-4o)
+- Adjust response style preferences
+- Configure confidence thresholds
+
+## Email Notifications
+
+The system sends email notifications when negative comments are detected. To configure email notifications:
+
+1. Copy `.env.example` to `.env`
+2. Configure the following email settings in your `.env` file:
+   - `EMAIL_SMTP_SERVER`: Your SMTP server (default: smtp.gmail.com)
+   - `EMAIL_SMTP_PORT`: SMTP port (default: 587)
+   - `EMAIL_USERNAME`: Your email username
+   - `EMAIL_PASSWORD`: Your email password (use an app-specific password)
+   - `EMAIL_RECIPIENT`: Where notifications should be sent
+   - `EMAIL_SENDER`: From address for notifications
+
+For Gmail users:
+
+1. Enable 2-factor authentication
+2. Generate an app-specific password at https://myaccount.google.com/apppasswords
+3. Use this password as your `EMAIL_PASSWORD`
+
+Email notifications include:
+
+- The detected negative comment
+- Sentiment analysis results
+- Suggested AI response
+- A link to the GUI for reviewing and approving responses
+
+## Maintenance
+
+### Database Management
+
+Run the cleanup script to maintain optimal performance:
 
 ```
-data/
-  new_directory/
-    .keep  # Add this file to preserve directory structure
+python scripts/cleanup.py --all
 ```
 
-### Before Pushing Code
+This script:
 
-Before pushing your code to the repository, always check that no sensitive data is included:
+- Archives old log files
+- Optimizes the database
+- Backs up important data
+- Clears temporary files
 
-```bash
-git status
-git diff --cached
-```
+### Regular Maintenance
 
-If you accidentally commit sensitive data, follow the steps in [GitHub's guide for removing sensitive data](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
+For best results:
+
+- Archive logs weekly
+- Backup the database monthly
+- Clear vector database if search performance degrades
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Reddit Authentication Errors**
+
+   - Verify your API credentials in Settings
+   - Check that your Reddit app has script permissions
+
+2. **Email Configuration Problems**
+
+   - Test your email settings in the application
+   - For Gmail, ensure you're using an App Password with 2FA
+
+3. **Monitoring Not Working**
+   - Check your internet connection
+   - Verify Reddit API rate limits
+   - Ensure subreddits are spelled correctly
+
+## Additional Information
+
+### Data Storage
+
+Comment data is stored in:
+
+- SQLite database (comments.db)
+- Vector database for semantic search
+- Backed up regularly to the backups/ directory
+
+### Privacy and Security
+
+- Credentials are stored locally in your .env file
+- Email alerts contain only public Reddit data
+- API keys are never shared or transmitted
+
+## Support and Documentation
+
+For detailed information:
+
+- Email Configuration: See [EMAIL_CONFIG.md](docs/EMAIL_CONFIG.md)
+- Project Structure: See [PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md)
+- Other documentation: Browse the docs/ directory
+
+## License
+
+This project is licensed under the MIT License.
+
+## Acknowledgments
+
+- LangChain and LangGraph for NLP capabilities
+- Reddit API for data access
+- OpenAI for sentiment analysis and response generation
+- Streamlit for the user interface
+
+## Technology Stack
+
+- Python 3.11+
+- LangChain for NLP and LLM integration
+- OpenAI GPT models for sentiment analysis and response generation
+- Streamlit for the web interface
+- SQLite for data persistence
+- FAISS for efficient similarity search
+- Poetry for dependency management
+
+## Response Approval Process
+
+When a negative comment is detected:
+
+1. The system performs sentiment analysis using LangChain and OpenAI
+2. An AI-generated response is drafted
+3. An email notification is sent to the configured email address
+4. The user can review and approve/reject responses in the GUI:
+   - Open the application
+   - Navigate to the "Pending Responses" tab
+   - Review each response
+   - Edit if needed
+   - Approve or reject
+5. Approved responses are automatically posted to Reddit
+
+Note: Previously, responses could be approved via email replies. This functionality has been removed in favor of the more robust GUI-based approval system, which offers better response management and editing capabilities.
