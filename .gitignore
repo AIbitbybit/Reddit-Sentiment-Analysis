@@ -18,3 +18,46 @@ Thumbs.db
 # Environment 
 
 .env
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Comment data files
+data/*.json
+data/*.csv
+data/*.txt
+data/comments/
+app/data/*.json
+app/data/*.csv
+app/data/*.txt
+
+# Raw data files
+data/raw/
+app/data/raw/*
+!app/data/raw/.keep
+
+# Workflow states
+data/workflow_states/
+app/data/workflow_states/*
+!app/data/workflow_states/.keep
+
+# Vector database
+app/data/vector_db/*
+!app/data/vector_db/.keep
+
+# Cache files
+*_cache.sqlite
+reddit_cache.sqlite
+
+# Environment and credentials
+.env.*
+!.env.example
+credentials.json
+
+# Cache and temporary files
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage 

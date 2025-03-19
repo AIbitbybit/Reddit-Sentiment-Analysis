@@ -122,3 +122,43 @@ The application can be extended with:
 - Support for more social media platforms
 - Advanced response generation strategies
 - Dashboard for managing responses
+
+## Data Privacy and Contributing
+
+### Data Privacy
+
+This repository is configured to exclude all sensitive data files from being pushed to GitHub:
+
+- Database files (_.db, _.sqlite)
+- Reddit comment data (raw JSON files)
+- Cached API responses
+- Workflow state files
+- Environment files with API keys (.env)
+
+If you're contributing to this project, please respect these guidelines:
+
+1. **Never commit real user data or comments** to the repository
+2. Use the provided `.env.example` for configuration templates
+3. For testing, create minimal sample data that doesn't contain personal information
+4. Make sure your local `.gitignore` is properly set up before committing
+
+### Directory Structure Preservation
+
+Empty directories are preserved with `.keep` files to maintain the correct structure while excluding the contents. When adding new data directories, follow this pattern:
+
+```
+data/
+  new_directory/
+    .keep  # Add this file to preserve directory structure
+```
+
+### Before Pushing Code
+
+Before pushing your code to the repository, always check that no sensitive data is included:
+
+```bash
+git status
+git diff --cached
+```
+
+If you accidentally commit sensitive data, follow the steps in [GitHub's guide for removing sensitive data](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
