@@ -96,15 +96,16 @@ Sends email alerts for negative comments that require attention, including:
      OPENAI_MODEL=gpt-4o
      ```
 
-2. Install dependencies:
+2. Install dependencies using Poetry:
 
    ```bash
-   pip install -r requirements.txt
+   cd app
+   poetry install
    ```
 
 3. Run the application:
    ```bash
-   python app/src/reddit_sentiment_analysis/monitoring/monitoring.py
+   poetry run reddit-monitor
    ```
 
 ### Email Service SSL Certificate Verification
